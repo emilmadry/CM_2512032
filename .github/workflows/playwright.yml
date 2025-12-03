@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Playwright Tests Stg
 on:
   push:
     branches: [ main, master ]
@@ -15,6 +15,9 @@ jobs:
     env:
       USER_NAME: ${{ secrets.USER_NAME }}
       USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+      STG_URL: ${{ vars.STG_URL }}
+      PROD_URL: ${{ vars.PROD_URL }}
+
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
@@ -25,9 +28,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright Desktop tests 
-      run: npx playwright test --project=desktop
-    - name: Run Playwright Mobile tests 
-      run: npx playwright test --project=mobile
+      run: npx playwright test --project=desktop-prod
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:

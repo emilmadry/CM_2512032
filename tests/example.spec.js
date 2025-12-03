@@ -19,4 +19,6 @@ test('login as admin', async ({ page }) => {
   await expect(page.getByTestId('welcome-msg')).toBeVisible();
   await expect(page.getByTestId('welcome-msg')).toContainText(`Witaj: ${process.env.USER_NAME}`);
 
+  console.log(process.env.USER_PASSWORD)
+
 });

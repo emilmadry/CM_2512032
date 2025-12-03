@@ -36,16 +36,18 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'desktop',
+      name: 'desktop-stg',
       use: {
         ...devices['Desktop Chrome'],
+        baseURL: process.env.STG_URL
       },
     },
 
     {
-      name: 'mobile',
+      name: 'desktop-prod',
       use: {
-        ...devices['Pixel 5'],
+        ...devices['Desktop Chrome'],
+        baseURL: process.env.PROD_URL
       },
     },
 
