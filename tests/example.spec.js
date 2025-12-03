@@ -1,22 +1,5 @@
-// @ts-check
+// @ts-nocheck
 import { test, expect } from '@playwright/test';
-
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
-
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-});
 
 
 test('mad qa has title', async ({ page }) => {
@@ -24,4 +7,16 @@ test('mad qa has title', async ({ page }) => {
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle('Testowy Sklep – Strona główna');
+});
+
+test('login as admin', async ({ page }) => {
+  await page.goto('/');
+
+  await page.getByTestId('login-username').fill(process.env.USER_NAME);
+  await page.getByTestId('login-password').fill(process.env.USER_PASSWORD);
+
+  await page.getByTestId('login-button').click();
+  await expect(page.getByTestId('welcome-msg')).toBeVisible();
+  await expect(page.getByTestId('welcome-msg')).toContainText(`Witaj: ${process.env.USER_NAME}`);
+
 });
