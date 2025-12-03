@@ -15,8 +15,6 @@ jobs:
     env:
       USER_NAME: ${{ secrets.USER_NAME }}
       USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
-      STG_URL: ${{ vars.STG_URL }}
-      PROD_URL: ${{ vars.PROD_URL }}
 
     steps:
       - uses: actions/checkout@v4

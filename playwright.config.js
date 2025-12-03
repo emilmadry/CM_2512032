@@ -40,7 +40,6 @@ export default defineConfig({
       name: 'desktop-stg',
       use: {
         ...devices['Desktop Chrome'],
-        baseURL: process.env.STG_URL,
       },
     },
 
@@ -48,7 +47,6 @@ export default defineConfig({
       name: 'desktop-prod',
       use: {
         ...devices['Desktop Chrome'],
-        baseURL: process.env.PROD_URL,
       },
     },
   ],
