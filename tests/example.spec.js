@@ -20,5 +20,5 @@ test('login as admin', async ({ page }) => {
     `Witaj: ${process.env.USER_NAME}`
   );
 
-  console.log(process.env.USER_PASSWORD);
+  await expect(page).toHaveScreenshot('login.png');
 });
