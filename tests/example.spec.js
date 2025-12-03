@@ -1,7 +1,6 @@
 // @ts-nocheck
 import { test, expect } from '@playwright/test';
 
-
 test('mad qa has title', async ({ page }) => {
   await page.goto('/');
 
@@ -17,8 +16,9 @@ test('login as admin', async ({ page }) => {
 
   await page.getByTestId('login-button').click();
   await expect(page.getByTestId('welcome-msg')).toBeVisible();
-  await expect(page.getByTestId('welcome-msg')).toContainText(`Witaj: ${process.env.USER_NAME}`);
+  await expect(page.getByTestId('welcome-msg')).toContainText(
+    `Witaj: ${process.env.USER_NAME}`
+  );
 
-  console.log(process.env.USER_PASSWORD)
-
+  console.log(process.env.USER_PASSWORD);
 });

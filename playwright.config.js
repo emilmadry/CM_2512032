@@ -39,7 +39,7 @@ export default defineConfig({
       name: 'desktop-stg',
       use: {
         ...devices['Desktop Chrome'],
-        baseURL: process.env.STG_URL
+        baseURL: process.env.STG_URL,
       },
     },
 
@@ -47,10 +47,9 @@ export default defineConfig({
       name: 'desktop-prod',
       use: {
         ...devices['Desktop Chrome'],
-        baseURL: process.env.PROD_URL
+        baseURL: process.env.PROD_URL,
       },
     },
-
   ],
 
   /* Run your local dev server before starting the tests */
@@ -60,4 +59,3 @@ export default defineConfig({
   //   reuseExistingServer: !process.env.CI,
   // },
 });
-
